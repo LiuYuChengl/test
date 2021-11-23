@@ -1,0 +1,25 @@
+#yml也是springboot 支持配置文件 很多人喜欢用
+#相比properties 配置文件 内容一模一样
+#但是yml配置文件 更有层次感 减少配置文件冗余
+#应用名
+#通过缩进来体现包之间的层次关系 如果没有缩进 springboot 会认为是同级的
+spring:
+  application:
+    name: config
+  cloud:  #配置中心
+    config:
+      server:
+        git:
+          #配置中心远程仓库地址 码云的仓库 切记 去掉.git 后缀
+          uri: https://gitee.com/liuyuchenggit/springcloudconfig
+          username: 2020585977@qq.com
+          password: liu123456
+          #配置本地存储的缓存目录 可以把远程仓库本地备份一次
+          #注：不要配置项目的跟目录 会把项目代码清空
+          basedir: ./config/basedir
+server:
+  port: 20000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8000/eureka/,http://127.0.0.1:8001/eureka/,http://127.0.0.1:8002/eureka/
